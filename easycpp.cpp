@@ -1,27 +1,34 @@
-#include <iostream>
+ï»¿#include <iostream>
+#include <string>
+
 using namespace std;
 
-int quxwei(int m,int n)  //mÊÇÔ­Êı×Ö,nÊÇµÚÒªÈ¡µÄµÚ¼¸Î»
+int quxwei_1(int m, int n)  //mæ˜¯åŸæ•°å­—,næ˜¯ç¬¬è¦å–çš„ç¬¬å‡ ä½
 {
 	while (n > 1)
 	{
 		m = m / 10;
 		n--;
- }
+	}
 	m = m % 10;
 	return m;
 }
+int quxwei_2(int m, int n) //mæ˜¯åŸæ•°å­—,næ˜¯ç¬¬è¦å–çš„ç¬¬å‡ ä½
+{
+	string str = std::to_string(m);
+	return str.at(-n);
 
-double sishewuru(double x , int n) //xÊÇĞèÒªËÄÉáÎåÈëµÄÊı×Ö,nÊÇËÄÉáÎåÈëµ½µÚ¼¸Î»
+}
+double sishewuru(double x, int n) //xæ˜¯éœ€è¦å››èˆäº”å…¥çš„æ•°å­—,næ˜¯å››èˆäº”å…¥åˆ°ç¬¬å‡ ä½
 {
 	try {
 		cin >> x;
 		if (cin.fail())
-			throw invalid_argument("²ÎÊıx²»ÊÇÊı×Ö");
+			throw invalid_argument("å‚æ•°xä¸æ˜¯æ•°å­—");
 		try {
 			cin >> n;
 			if (cin.fail())
-				throw invalid_argument("²ÎÊın²»ÊÇÕûÊı");
+				throw invalid_argument("å‚æ•°nä¸æ˜¯æ•´æ•°");
 			x = x * pow(10, n);
 			if (x - floor(x) >= 0, 5)
 			{
@@ -38,12 +45,12 @@ double sishewuru(double x , int n) //xÊÇĞèÒªËÄÉáÎåÈëµÄÊı×Ö,nÊÇËÄÉáÎåÈëµ½µÚ¼¸Î»
 		}
 		catch (invalid_argument)
 		{
-			cout << "sishewuruº¯Êı²ÎÊınÊäÈë´íÎó!";
+			cout << "sishewuruå‡½æ•°å‚æ•°nè¾“å…¥é”™è¯¯!";
 		}
 	}
 	catch (invalid_argument)
 	{
-		cout << "sishewuruº¯Êı²ÎÊımÊäÈë´íÎó!";
+		cout << "sishewuruå‡½æ•°å‚æ•°mè¾“å…¥é”™è¯¯!";
 	}
 
 }
